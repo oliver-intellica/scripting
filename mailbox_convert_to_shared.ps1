@@ -3,6 +3,6 @@
 # Assume you are already connected to your Exchange Online organisation with Powershell with Exchange
 # modul imported.
 
-Import-Csv .\file_of_UPNs_with_ident_as_column_header.csv | foreach {Set-Mailbox $_.ident -Type Shared}
+Import-Csv .\file_of_UPNs_with_ident_as_column_header.csv | ForEach-Object {Set-Mailbox $_.ident -Type Shared}
 
 
