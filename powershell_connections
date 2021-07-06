@@ -1,0 +1,3 @@
+$credentials = Get-Credential
+$session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri http://servername/PowerShell -Authentication kerberos -Credential $creds
+Import-PSSession $session
