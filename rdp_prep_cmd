@@ -1,0 +1,19 @@
+#Add user's PC as reserved DHCP address
+#Add user's PC to VPN policy allowed resource list
+#Add user to Remote group  in AD: QFS-SSL VPN Users
+#Add Pro licenses in N-Central for user's PC (temporary)
+
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+
+netsh advfirewall firewall set rule group="remote desktop" new enable=Yes
+
+netsh advfirewall firewall add rule name="ICMP Allow incoming V4 echo request" protocol=icmpv4:8,any dir=in action=allow
+
+powercfg /change standby-timeout-ac 0
+
+#Add user to local remote desktop users group:
+net localgroup "Remote Desktop Users" qfs\sutart /add
+
+#Remove Proce license from User PC in N-Central.
+
+#Done.
