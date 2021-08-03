@@ -14,6 +14,6 @@ powercfg /change standby-timeout-ac 0
 #Add user to local remote desktop users group:
 net localgroup "Remote Desktop Users" DOMAIN\USER /add
 
-#Remove Proce license from User PC in N-Central.
+#Remove Proc license from User PC in N-Central.
 
 #Done.
