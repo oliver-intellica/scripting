@@ -1,0 +1,1 @@
+Set-ExternalInOutlook -Enabled $true
