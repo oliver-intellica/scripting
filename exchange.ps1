@@ -1,3 +1,6 @@
+# Exchange 2010 CSR example
+New-ExchangeCertificate -GenerateRequest -KeySize 4096 -SubjectName "c=AU, l=Brisbane, s=QLD, o=YourCompanyInc, cn=YourFirstDomain.com" -DomainName YourSecondDomain.com, YourThirdDomain.com -PrivateKeyExportable:$true
+
 # Cleans out moved/deleted mailboxes in database QFSDB2
 Get-MailboxStatistics -Database "QFSDB2" -OutBuffer 1000 | ? {$_.DisconnectReason -eq "SoftDeleted"} | foreach {Remove-StoreMailbox -Database $_.database -Identity $_.mailboxguid -MailboxState SoftDeleted -Confirm}
 
