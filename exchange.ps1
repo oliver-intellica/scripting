@@ -14,13 +14,10 @@ Get-MoveRequest -ResultSize Unlimited | Get-MoveRequestStatistics
 Get-MailboxDatabase -Status | select Name,DatabaseSize,AvailableNewMailboxSpace
 
 # Get Mailbox statistics
-Get-Mailbox -ResultSize Unlimited | Get-MailboxStatistics | Sort-Object TotalItemSize -Descendi
-ng | Select-Object DisplayName,TotalItemSize,Database
+Get-Mailbox -ResultSize Unlimited | Get-MailboxStatistics | Sort-Object TotalItemSize -Descending | Select-Object DisplayName,TotalItemSize,Database
 
 # Get Mailbox statistics and export to a csv file
-Get-Mailbox -ResultSize Unlimited | Get-MailboxStatistics | Sort-Object TotalItemSize -Descendi
-ng | Select-Object DisplayName,TotalItemSize,Database | Export-Csv c:\mailboxstats.csv
-
+Get-Mailbox -ResultSize Unlimited | Get-MailboxStatistics | Sort-Object TotalItemSize -Descending | Select-Object DisplayName,TotalItemSize,Database | Export-Csv c:\mailboxstats.csv
 
 #Add mailbox permissions for Calendar access with group selection and object iteration loop
 $mailboxes = @(Get-ADGroupMember "Executive" | ForEach-Object { get-mailbox $_.distinguishedname })
