@@ -2,10 +2,8 @@
 New-ExchangeCertificate -GenerateRequest -KeySize 4096 -SubjectName "c=AU, l=Brisbane, s=QLD, o=YourCompanyInc, cn=YourFirstDomain.com" -DomainName YourSecondDomain.com, YourThirdDomain.com -PrivateKeyExportable:$true
 
 # Cleans out moved/deleted mailboxes in database QFSDB2
+# Note: replace "SofteDeleted" with "Disabled" for mailboxes that have not yet been deleted but you want to clear out as well.
 Get-MailboxStatistics -Database "QFSDB2" -OutBuffer 1000 | ? {$_.DisconnectReason -eq "SoftDeleted"} | foreach {Remove-StoreMailbox -Database $_.database -Identity $_.mailboxguid -MailboxState SoftDeleted -Confirm}
-
-# Cleans out moved/deleted mailboxes in database Mailbox Database 2013011115
-Get-MailboxStatistics -Database "Mailbox Database 2013011115" -OutBuffer 1000 | ? {$_.DisconnectReason -eq "SoftDeleted"} | foreach {Remove-StoreMailbox -Database $_.database -Identity $_.mailboxguid -MailboxState SoftDeleted -Confirm}
 
 # Show move requests progress
 Get-MoveRequest -ResultSize Unlimited | Get-MoveRequestStatistics
