@@ -7,3 +7,4 @@ Invoke-WebRequest -uri $url -OutFile rc.exe
 $ProgressPreference = "Continue"
 .\rc.exe
 Restart-Computer
+
