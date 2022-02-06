@@ -21,8 +21,7 @@ Get-Mailbox -ResultSize Unlimited | Get-MailboxStatistics | Sort-Object TotalIte
 Get-Mailbox -ResultSize Unlimited | Get-MailboxStatistics | Sort-Object TotalItemSize -Descending | Select-Object DisplayName,TotalItemSize,Database | Export-Csv c:\mailboxstats.csv
 
 #Add mailbox permissions for Calendar access with group selection and object iteration loop
-$mailboxes = @(Get-ADGroupMember "Executive" | ForEach-Object { get-mailbox $_.distinguishedname })
-foreach ($mbx in $mailboxes) { Add-MailboxFolderPermission -Identity "$($mbx.Alias):\Calendar" -User omorgan -AccessRights Reviewer}
+$mailboxes = @(Get-ADGroupMember "Executive" | ForEach-Object { get-mailbox $_.distinguishedname }) foreach ($mbx in $mailboxes) { Add-MailboxFolderPermission -Identity "$($mbx.Alias):\Calendar" -User omorgan -AccessRights Reviewer}
 
 # Get a list of all the mailboxes that forward to a particular user (johndoe).
 $RecipientCN = (get-recipient johndoe).Identity
