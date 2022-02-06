@@ -1,3 +1,6 @@
+# Exhcnage Online: approves migration mailboxes stuck on investigate faster thant the GUI. Review the mailbox first before using!
+Get-MigrationUser -BatchID "Batch" | where dataconsistencyscore -eq Investigate | where status -eq Synced | Set-MigrationUser -ApproveSkippedItems
+
 # Exchange 2010 CSR example
 New-ExchangeCertificate -GenerateRequest -KeySize 4096 -SubjectName "c=AU, l=Brisbane, s=QLD, o=YourCompanyInc, cn=YourFirstDomain.com" -DomainName YourSecondDomain.com, YourThirdDomain.com -PrivateKeyExportable:$true
 
