@@ -1,6 +1,6 @@
 # Make sure you are  in the right subscription/context or thing just won't work!
 az account list # lists your subscriptions
-az account set # will set your default subsctiption when you logon
+az account set --subscription "sub id" # will set your default subsctiption when you logon
 Get-AzContext # get the current context you are working in
 Set-AzContext "sub id" # set the context you want to be working in!
 
