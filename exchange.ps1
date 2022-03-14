@@ -29,3 +29,6 @@ Get-Mailbox -ResultSize Unlimited -Filter "ForwardingAddress -eq '$RecipientCN'"
 
 # Message tracing with export in Exchange 2010 shell example
 get-messagetrackinglog -Start "6/11/2021 12:00:00 AM" -End "7/11/2021 11:59:59 PM" | select timestemp, eventid, source, sourcetext, messageid, messagesubject, sender, {$recipients}, internalmessageid, clientip, clienthostname, serverip, serverhostname, connectorid, {$_.recipientstatus}, totalbytes, recipiencount, relatedrecipientaddress, reference, returnpath, messageinfo | export-csv c:\exportfile.csv
+
+# Permissions with hybrid exchange mailboxes run in exchange online
+Add-RecipientPermission -Identity EXO1USER -Trustee ONPREM1USER -AccessRights SendAs
