@@ -32,3 +32,41 @@ get-messagetrackinglog -Start "6/11/2021 12:00:00 AM" -End "7/11/2021 11:59:59 P
 
 # Mailbox Recipient Permissions with hybrid exchange run in exchange online
 Add-RecipientPermission -Identity EXO1USER -Trustee ONPREM1USER -AccessRights SendAs
+
+<# NAME
+    New-Mailbox
+
+SYNOPSIS
+    Use the New-Mailbox cmdlet to create a user in Active Directory and mailbox-enable this new user.
+
+    -------------------------- EXAMPLE 1 --------------------------
+
+
+
+
+    This example creates a user Chris Ashton in Active Directory and creates a mailbox for the user. The mailbox is loc
+    ated on Mailbox Database 1. The password must be reset at the next logon. To set the initial value of the password,
+     this example creates a variable ($password), prompts you to enter a password, and assigns that password to the var
+    iable as a SecureString object.
+
+#>
+
+    $password = Read-Host "Enter password" -AsSecureString
+    New-Mailbox -UserPrincipalName chris@contoso.com -Alias chris -Database "Mailbox Database 1" -Name ChrisAshton -OrganizationalUnit Users -Password $password -FirstName Chris -LastName Ashton -DisplayName "Chris Ashton" -ResetPasswordOnNextLogon $false -PasswordNeverExpires $true
+  
+  
+  <# -------------------------- EXAMPLE 2 --------------------------
+
+
+
+
+    This example creates a user in Active Directory and a resource mailbox for a conference room. The resource mailbox
+    is located in Mailbox Database 1. The password must be reset at the next logon. The Exchange Management Shell promp
+    ts for the value of the initial password because it's not specified.
+
+#>
+
+    New-Mailbox -UserPrincipalName confmbx@contoso.com -Alias confmbx -Name ConfRoomMailbox -Database "Mailbox Database 1" -OrganizationalUnit Users -Room -ResetPasswordOnNextLogon $true
+
+
+
