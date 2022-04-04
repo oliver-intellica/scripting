@@ -9,7 +9,14 @@ Add-ADGroupMember CloudSignatures username
 # $Credentials = Get-Credential
 # $MigrationEndpointOnPrem = New-MigrationEndpoint -ExchangeRemoteMove -Name OnpremEndpoint -Autodiscover -EmailAddress administrator@onprem.contoso.com -Credentials $Credentials
 $OnboardingBatch = New-MigrationBatch -Name RemoteOnBoarding1 -SourceEndpoint $MigrationEndpointOnprem.Identity -TargetDeliveryDomain contoso.mail.onmicrosoft.com -CSVData ([System.IO.File]::ReadAllBytes("C:\Users\Administrator\Desktop\RemoteOnBoarding1.csv"))
-Start-MigrationBatch -Identity $OnboardingBatch.Identity
+Start-MigrationBatch -Identity $OnboardingBatch.Identity -AutoComplete -AutoStart
+
+## Note the -CSVDATA file should be in the format:
+## EMAILADDRESS
+## user1@example.com
+## user2@example.com 
+## ...
+## usern@@example.com
 
 ### After Migration of mailbox
 
