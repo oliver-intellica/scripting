@@ -23,7 +23,7 @@ Get-MigrationBatch # to monitor progress if you want to
 
 ### After Migration of mailbox
 
-### Assisng Licensing
+### Assigning Licensing
 Connect-MSOL
 Get-MsolAccountSku
 Set-MsolUser -UserPrincipalName user@example.com -UsageLocation AU
