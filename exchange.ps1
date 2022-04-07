@@ -45,7 +45,7 @@ SYNOPSIS
     iable as a SecureString object.
 #>
     $password = Read-Host "Enter password" -AsSecureString
-    New-Mailbox -UserPrincipalName chris@contoso.com -Alias chris -Database "Mailbox Database 1" -Name ChrisAshton -OrganizationalUnit Users -Password $password -FirstName Chris -LastName Ashton -DisplayName "Chris Ashton" -ResetPasswordOnNextLogon $false
+    New-Mailbox -UserPrincipalName user01@contoso.com -Alias chris -Database "Mailbox Database 1" -Name User01 -OrganizationalUnit Users -Password $password -FirstName User -LastName 01 -DisplayName "User01" -ResetPasswordOnNextLogon $false
   
 # Add a user to a distribution group and bypass manager check
 Add-DistributionGroupMember -Identity "DL Name" -Member "user name" -BypassSecurityGroupManager
