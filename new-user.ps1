@@ -2,7 +2,16 @@ $password = Read-Host "Enter password" -AsSecureString
 
 New-Mailbox -UserPrincipalName username@example.com -Alias anash -Database "DBNAME" -Name "FirstName LastName" -OrganizationalUnit "the OU" -Password $password -DisplayName "FirstName LastName" -ResetPasswordOnNextLogon $false
 
-Add-ADGroupMember CloudSignatures username
+# Add to relevent group memberships
+Add-ADGroupMember CloudSignatures Talara.Lahrs
+#use this one liner to copy another users group memberships wholesale
+Get-ADUser -Identity existinguser01 -Properties memberof | Select-Object -ExpandProperty memberof | Add-ADGroupMember -Members newuser01
+
+# then sync
+repadmin /syncall /APeD
+
+# then adsync
+start-AdsyncSyncCycle -PolicyType Delta
 
 ## Then go migrate mailbox using the 365 portal GUI (or exchange online powershell)
 
