@@ -39,7 +39,7 @@ Set-MsolUser -UserPrincipalName user@example.com -UsageLocation AU
 Set-MsolUserLicense -UserPrincipalName user@example.com -AddLicenses organisationame:SPB # SPD is Microsoft 365 Business Premium
 
 
-# Set ACLs on mailboxes in Exchange Online - resoles some cross permissions issues between Exchange 2010 and EXO in a hybrid configuration
+# Set ACLs on mailboxes in Exchange Online - resolves some cross permissions issues between Exchange 2010 and EXO in a hybrid configuration
 Get-RemoteMailbox -ResultSize unlimited | where {$_.RecipientTypeDetails -eq "RemoteUserMailbox"} | foreach {Get-AdUser -Identity $_.Guid | Set-ADObject -Replace @{msExchRecipientDisplayType=-1073741818}}
 
 # Manual setting of delegation permissions - run these on EXO and On-Prem.
