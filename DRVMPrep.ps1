@@ -12,7 +12,7 @@ Invoke-WebRequest -uri $url -OutFile rc.exe
 $ProgressPreference = "Continue"
 
 # initialize and format our virtual disk to hold the virtual disaster recover install files
-get-disk | where PartitionStyle -eq 'raw' | sort number | Initialize-Disk -PartitionStyle MBR -PassThru | New-Partition -UseMaximumSize -DriveLetter F | Format-Volume -FileSystem NTFS -NewFileSystemLabel "Restore Data" -Confirm
+get-disk | Where-Object PartitionStyle -eq 'raw' | sort number | Initialize-Disk -PartitionStyle MBR -PassThru | New-Partition -UseMaximumSize -DriveLetter F | Format-Volume -FileSystem NTFS -NewFileSystemLabel "Restore Data" -Confirm
 
 #Restart the computer as it needs a reboot before installing the recovery console - check on this each time you use it as you may not have to depending on what updates/state the latest azure image is
 Restart-Computer
