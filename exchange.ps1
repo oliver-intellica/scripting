@@ -50,3 +50,6 @@ SYNOPSIS
 # Add a user to a distribution group and bypass manager check
 Add-DistributionGroupMember -Identity "DL Name" -Member "user name" -BypassSecurityGroupManager
 
+# Add the exchange console to a session
+Add-PSsnapin Microsoft.Exchange.Management.PowerShell.E2010
+
