@@ -3,7 +3,7 @@ $password = Read-Host "Enter password" -AsSecureString
 New-Mailbox -UserPrincipalName username@example.com -Alias anash -Database "DBNAME" -Name "FirstName LastName" -OrganizationalUnit "the OU" -Password $password -DisplayName "FirstName LastName" -ResetPasswordOnNextLogon $false
 
 # Add to relevent group memberships
-Add-ADGroupMember CloudSignatures Talara.Lahrs
+Add-ADGroupMember CloudSignatures username
 #use this one liner to copy another users group memberships wholesale
 Get-ADUser -Identity existinguser01 -Properties memberof | Select-Object -ExpandProperty memberof | Add-ADGroupMember -Members newuser01
 
