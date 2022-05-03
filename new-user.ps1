@@ -36,7 +36,7 @@ Get-MigrationBatch # to monitor progress if you want to
 ### After Migration of mailbox
 
 ### Assigning Licensing
-Connect-MSOL
+Connect-MsolService
 Get-MsolAccountSku
 Set-MsolUser -UserPrincipalName user@example.com -UsageLocation AU
 Set-MsolUserLicense -UserPrincipalName user@example.com -AddLicenses organisationame:SPB # SPD is Microsoft 365 Business Premium
