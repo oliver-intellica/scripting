@@ -47,9 +47,9 @@ Get-RemoteMailbox -ResultSize unlimited | where {$_.RecipientTypeDetails -eq "Re
 
 # Manual setting of delegation permissions - run these on EXO and On-Prem.
 # On-Prem
-Add-ADPermission -Identity EXO1 -User ONPREM1 -AccessRights ExtendedRight -ExtendedRights "Send As"
+Add-ADPermission -Identity OnPremUser -User EXOUser -AccessRights ExtendedRight -ExtendedRights "Send As"
 # Exchange Online
-Add-RecipientPermission -Identity EXO1 -Trustee ONPREM1 -AccessRights SendAs
+Add-RecipientPermission -Identity OnPremUser -Trustee EXOUser -AccessRights SendAs
 
 
 ### Then sync data in Exclimaer cloud and do a policy test for the new users
