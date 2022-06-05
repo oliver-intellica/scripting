@@ -43,6 +43,7 @@ Set-MsolUserLicense -UserPrincipalName user@example.com -AddLicenses organisatio
 
 
 # Set ACLs on mailboxes in Exchange Online - resolves some cross permissions issues between Exchange 2010 and EXO in a hybrid configuration
+# This command is performed on the on-prem server's exchange shell and you will most likely need to import-module activedirectory
 Get-RemoteMailbox -ResultSize unlimited | where {$_.RecipientTypeDetails -eq "RemoteUserMailbox"} | foreach {Get-AdUser -Identity $_.Guid | Set-ADObject -Replace @{msExchRecipientDisplayType=-1073741818}}
 
 # Manual setting of delegation permissions - run these on EXO and On-Prem.
