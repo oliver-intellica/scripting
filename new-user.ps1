@@ -31,7 +31,8 @@ Start-MigrationBatch -Identity $OnboardingBatch.Identity # only needed if autsta
 ## ...
 ## usern@@example.com
 
-Get-MigrationBatch # to monitor progress if you want to
+# Monitor how your migration batch(s) are going.
+Get-MigrationBatch | Select-Object Identity,TotalCount,SyncedCount,FailedCount,FinalizedCount,State,WorkflowStage,DataConsistencyScore
 
 ### After Migration of mailbox
 
