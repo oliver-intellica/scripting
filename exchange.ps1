@@ -1,8 +1,9 @@
 # Exhcnage Online: approves migration mailboxes stuck on investigate faster thant the GUI. Review the mailbox first before using!
 Get-MigrationUser -BatchID "Batch" | where dataconsistencyscore -eq Investigate | where status -eq Synced | Set-MigrationUser -ApproveSkippedItems
 
-# Exchange 2010 CSR example
+# Exchange CSR example
 New-ExchangeCertificate -GenerateRequest -KeySize 4096 -SubjectName "C=AU, O=YourCompanyInc, cn=YourFirstDomain.com" -DomainName YourSecondDomain.com, YourThirdDomain.com -PrivateKeyExportable:$true
+Import-ExchangeCertificate -FileData ([System.IO.File]::ReadAllBytes('C:\Users\SysAdmin\Desktop\certName.crt'))
 
 # Cleans out moved/deleted mailboxes in database QFSDB2
 # Note: replace "SofteDeleted" with "Disabled" for mailboxes that have not yet been deleted but you want to clear out as well.
