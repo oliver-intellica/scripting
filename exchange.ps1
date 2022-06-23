@@ -4,6 +4,7 @@ Get-MigrationUser -BatchID "Batch" | where dataconsistencyscore -eq Investigate 
 # Exchange CSR example
 New-ExchangeCertificate -GenerateRequest -KeySize 4096 -SubjectName "C=AU, O=YourCompanyInc, cn=YourFirstDomain.com" -DomainName YourSecondDomain.com, YourThirdDomain.com -PrivateKeyExportable:$true
 Import-ExchangeCertificate -FileData ([System.IO.File]::ReadAllBytes('C:\Users\SysAdmin\Desktop\certName.crt'))
+Enable-ExchangeCertificate -Thumbprint XXXXXXXXXXXXXXXXXXXXXXXX -Services POP,IMAP,IIS,SMTP
 
 # Cleans out moved/deleted mailboxes in database QFSDB2
 # Note: replace "SofteDeleted" with "Disabled" for mailboxes that have not yet been deleted but you want to clear out as well.
