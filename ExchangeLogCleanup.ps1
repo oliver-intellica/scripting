@@ -1,5 +1,5 @@
 # This script is a generic template for cleaning up logs on Exchange Server - v15 is the example.
-# Applicable to most default 2013/2016/2019 installs.
+# Applicable to most default 2013/2016/2019 installs. test edit and committ.
 
 # Set execution policy if not set
 $ExecutionPolicy = Get-ExecutionPolicy
