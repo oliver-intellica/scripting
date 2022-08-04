@@ -13,7 +13,7 @@ Get-ADUser -Identity existinguser01 -Properties memberof | Select-Object -Expand
 # then sync
 repadmin /syncall /APeD
 
-# then adsync
+# then adsync and wait a couple of minutes for it to run through to sync process
 start-AdsyncSyncCycle -PolicyType Delta
 
 ## Then go migrate mailbox using the 365 portal GUI (or exchange online powershell)
