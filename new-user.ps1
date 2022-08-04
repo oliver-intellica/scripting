@@ -24,7 +24,7 @@ start-AdsyncSyncCycle -PolicyType Delta
 $migrationEndpointOnPrem = get-migrationendpoint # instead of creating a new one.
 
 #Creation the batch and autostart and autocomplete it
-$OnboardingBatch = New-MigrationBatch -Name RemoteOnBoarding1 -SourceEndpoint $MigrationEndpointOnprem.Identity -TargetDeliveryDomain contoso.mail.onmicrosoft.com -CSVData ([System.IO.File]::ReadAllBytes("C:\Users\Administrator\Desktop\RemoteOnBoarding1.csv"))  -AutoComplete -AutoStart -NotificationEmails user@user.com
+$OnboardingBatch = New-MigrationBatch -Name RemoteOnBoarding1 -SourceEndpoint $MigrationEndpointOnprem.Identity -TargetDeliveryDomain contoso.mail.onmicrosoft.com -CSVData ([System.IO.File]::ReadAllBytes("C:\onboarding.txt"))  -AutoComplete -AutoStart -NotificationEmails user@user.com
 Start-MigrationBatch -Identity $OnboardingBatch.Identity # only needed if autstart not specified in New-MigraitonBatch
 
 ## Note the -CSVDATA file should be in the format:
