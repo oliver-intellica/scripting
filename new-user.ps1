@@ -2,6 +2,9 @@ $password = Read-Host "Enter password" -AsSecureString
 
 New-Mailbox -UserPrincipalName username@example.com -Alias anash -Database "DBNAME" -Name "FirstName LastName" -OrganizationalUnit "the OU" -Password $password -DisplayName "FirstName LastName" -ResetPasswordOnNextLogon $false
 
+# Add Title
+Import-Module ActiveDirectory
+Set-ADUser -Identity username -Title "Job Title"
 # Add to relevent group memberships
 Add-ADGroupMember CloudSignatures username
 #use this one liner to copy another users group memberships wholesale
