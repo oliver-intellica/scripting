@@ -9,6 +9,8 @@ Set-ADUser -Identity username -Title "Job Title"
 Add-ADGroupMember CloudSignatures username
 #use this one liner to copy another users group memberships wholesale
 Get-ADUser -Identity existinguser01 -Properties memberof | Select-Object -ExpandProperty memberof | Add-ADGroupMember -Members newuser01
+# you can add mailbox delegation to on-prem mailboxes at this point - EO mailboxes later
+Add-MailboxPermission -Identity "OnPremMailbox" -User "new user" -AccessRights FullAccess -InheritanceType All
 
 # then sync
 repadmin /syncall /APeD
