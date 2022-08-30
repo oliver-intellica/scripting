@@ -1,6 +1,6 @@
 $password = Read-Host "Enter password" -AsSecureString
 
-New-Mailbox -UserPrincipalName username@example.com -Alias anash -Database "DBNAME" -Name "FirstName LastName" -OrganizationalUnit "the OU" -Password $password -DisplayName "FirstName LastName" -ResetPasswordOnNextLogon $false
+New-Mailbox -UserPrincipalName username@example.com -Alias alias -Database "DBNAME" -Name "FirstName LastName" -OrganizationalUnit "the OU" -Password $password -DisplayName "FirstName LastName" -ResetPasswordOnNextLogon $false
 
 # Add Title
 Import-Module ActiveDirectory
