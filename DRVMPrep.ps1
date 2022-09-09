@@ -18,4 +18,4 @@ get-disk | Where-Object PartitionStyle -eq 'raw' | sort number | Initialize-Disk
 Restart-Computer
 
 #After reboot, then install the recovery console and add the backup device
-.\rc.exe
+#.\rc.exe
