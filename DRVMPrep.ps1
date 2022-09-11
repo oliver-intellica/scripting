@@ -15,7 +15,7 @@ $ProgressPreference = "Continue"
 get-disk | Where-Object PartitionStyle -eq 'raw' | sort number | Initialize-Disk -PartitionStyle MBR -PassThru | New-Partition -UseMaximumSize -DriveLetter F | Format-Volume -FileSystem NTFS -NewFileSystemLabel "Restore Data" -Confirm
 
 #Restart the computer as it needs a reboot before installing the recovery console - check on this each time you use it as you may not have to depending on what updates/state the latest azure image is
-Restart-Computer
+#Restart-Computer
 
 #After reboot, then install the recovery console and add the backup device
 #.\rc.exe
