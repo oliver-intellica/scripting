@@ -9,3 +9,4 @@ w32tm /config /reliable:yes
 
 REMARK Start the w32time service:
 net start w32time
+
