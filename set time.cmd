@@ -1,3 +1,6 @@
+REMARK lets set some reliable time sources - good for PDCs on Windows Domains and Hyper-V hosts.
+REMARK Author Oliver Caldwell; 28 August 2023.
+
 REMARK Stop the W32Time service:
 net stop w32time
 
