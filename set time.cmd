@@ -4,7 +4,7 @@ REMARK Author Oliver Caldwell; 28 August 2023.
 REMARK Stop the W32Time service:
 net stop w32time
 
-REMARK Configure the external time sources, type:
+REMARK Configure the external time sources. I like time.nist.gov but the pool.ntp.org project also a valid choice.
 w32tm /config /syncfromflags:manual /manualpeerlist:time.nist.gov
 
 REMARK Make your PDC a reliable time source for the clients:
