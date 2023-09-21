@@ -1,0 +1,4 @@
+$url = "https://download.sysinternals.com/files/Sysmon.zip"
+$ProgressPreference = 'SilentlyContinue'
+Invoke-WebRequest -uri $url -OutFile Sysmon.zip
+$ProgressPreference = "Continue"
